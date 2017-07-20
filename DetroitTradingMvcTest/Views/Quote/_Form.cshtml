@@ -1,0 +1,20 @@
+﻿<div ng-controller="quoteForm as $ctrl">
+    <form name="$ctrl.quoteForm" class="form-horizontal" ng-submit="$ctrl.submit()">
+        <div class="form-group">
+            <label class="control-label">Make: </label>
+            <select ng-model="$ctrl.model.Make" ng-options="make.Description for make in $ctrl.makes track by make.Id" ng-change="$ctrl.loadModels($ctrl.model.Make.Id)" required class="form-control">
+                <option value="">Select...</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Model: </label>
+            <select ng-model="$ctrl.model.Model" ng-options="model.Description for model in $ctrl.models track by model.Id" required class="form-control">
+                <option value="">Select...</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="well" ng-show="$ctrl.thankYouResult">
+        <div ng-bind-html="$ctrl.thankYouResult"></div>
+    </div>
+</div>
